@@ -1,0 +1,12 @@
+﻿@model MyApp.Models.Book
+@{
+	ViewData["Detail"] = "Books";
+}
+<h1>@ViewData["Kitabın məlumatı"]</h1>
+
+
+<div>
+	<h2>@Model.Title</h2>
+	<p><strong>Author:</strong> @Model.Author</p>
+	<p><strong>Price:</strong> @Model.Price</p>
+</div>
