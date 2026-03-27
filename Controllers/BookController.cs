@@ -13,12 +13,14 @@ namespace MyApp.Controllers
             new Book { Id = 2, Title = "To Kill a Mockingbird", Author = "Harper Lee", Price = 8.99m },
             new Book { Id = 3, Title = "1984", Author = "George Orwell", Price = 9.99m }
         };
+        [HttpGet]
         public IActionResult Index()
         {
             ViewData["Taleh"] = "Kitablar siyahisi";
             return View("Test", _books);
         }
 
+        [HttpGet]
         public IActionResult Details(int id)
         {
             var book = _books.FirstOrDefault(b => b.Id == id);
@@ -39,7 +41,8 @@ namespace MyApp.Controllers
                 Id = _books.Count + 1,
                 Title = request.Title,
                 Author = request.Author,
-                Price = request.Price
+                Price = request.Price,
+                IsDeleted = false
             };
 
             _books.Add(newBook);
